@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+    }
+    .container {
+        width: 50%;
+        margin: auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        text-align: center;
+    }
+    form {
+        margin-top: 20px;
+    }
+    label {
+        display: block;
+        font-weight: bold;
+    }
+    input[type="date"],
+    input[type="tel"],
+    input[type="username"],
+    input[type="password"],
+    input[type="text"],
+    input[type="email"],
+    select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        background-color: #4caf50;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    input[type="submit"]:hover {
+        background-color:greenyellow;
+        border-radius: 5px;
+    }
+</style>
+
+<body>
+    <div class="container" style="align-items: center;" id="submitForm" onsubmit="return handleSubmit()">
+    <form>
+        <h2>STUDENT REGISTRATION FORM</h2>
+        
+        <label>Name:</label>                    
+        <input type="text" placeholder="Enter Name " size="30">  <br> 
+
+        <label>Father Name:</label>
+        <input type="text" placeholder="Enter Father Name" size="30"><br>
+
+        <label>Surname:</label>
+        <input type="text" placeholder="Enter Surname" size="30"><br>   
+
+        <label>Mother Name:</label>           
+        <input type="text" placeholder="Enter Mother Name" size="30"><br>
+
+        <label>Date of Birth:</label>
+        <input type="date"><br>
+
+        
+        
+            <label for="Gender">Gender:</label>
+            <input type="radio" name="Gender" id="male">
+            <label for="male">Male</label>
+            <input type="radio" name="Gender" id="female">
+            <label for="female">Gender</label>
+            <input type="radio" name="Gender" id="others">
+            <label for="others">Prefer not to say</label>
+       
+        
+        <br>
+
+        <label>Email Id:</label>
+        <input type="email" placeholder="Enter your email"><br>
+
+        <label>Phone no:</label>
+        <input type="tel" placeholder="Enter Phone Number">
+       
+        
+         <label>State:</label>
+        <select>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Gujrat">Gujrat</option>
+            <option value="Rasjastan">Rasjastan</option>
+            <option value="Odisa">Odisa</option>
+            <option value="Chhatisgarh">Chhatisgarh</option>
+        </select><br>
+        
+
+        <button type="submit" id="submit">Submit</button>
+    </form>
+
+    <div id="thankYouMessage" class="hidden">
+        <h2>Thank You for Registering!</h2>
+        <p>Your registration details have been received. We will contact you shortly.</p>
+    </div>
+
+    <script>
+         function handleSubmit() {
+        
+
+
+            // Display thank you message and hide form
+            document.getElementById('registrationForm').classList.add('hidden');
+            document.getElementById('thankYouMessage').classList.remove('hidden');
+
+            // You can send form data to a server here if needed
+
+            // Return false to prevent default form submission behavior
+            return false;
+        }
+    </script>
+</div>  
+</body>
+</html>

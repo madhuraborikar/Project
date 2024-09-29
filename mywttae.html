@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Registration</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+    }
+    .container {
+        width: 30%;
+        margin: auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1{
+        text-align: center;
+        color: white;
+        background-color: black;
+    }
+    form {
+        margin-top: 20px;
+    }
+    label {
+        display: block;
+        font-weight: bold;
+    }
+    input[type="number"]
+    input[type="date"],
+    input[type="tel"],
+    input[type="username"],
+    input[type="password"],
+    input[type="text"],
+    input[type="email"],
+    select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        background-color: #4caf50;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    input[type="submit"]:hover {
+        background-color:greenyellow;
+        border-radius: 5px;
+    }
+    .hidden{
+         display: none;
+    }
+    #thankYouMessage {
+        font-family: "Times New Roman", Times, serif;
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <form onsubmit="return handleSubmit(event)" id="submitForm" >
+        <h1><u>Student Registration</u></h1>
+       <label for="name">Name:</label>
+       <input type="text" id="name" placeholder="Enter Name" required >
+       <br/>
+       <br/>
+
+       <label for="surname">Surame:</label>
+       <input type="text" id="surname" placeholder="Enter Surname" required>
+       <br/>
+       <br/>
+       
+       <label for="section">Section:</label>
+       <select id="section">
+        <option value="0">Select Section</option>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+        <option value="E">E</option>
+        <option value="F">F</option>
+       </select>
+       <br>
+       <br>
+
+       <label for="rollno">Roll no.:</label>
+       <input type="number" id="rollno" min="1" max="80" size="100px">
+       <br>
+       <br>
+
+
+       <label for="dob">Date of Birth: </label>
+       <input type="date" id="dob" required>
+       <br/>
+       <br/>
+
+       <label>Gender:</label>
+       <select id="gender" required>
+        <option value="0">Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="others">Prefer not to say</option>
+       </select>
+       <br/>
+       <br/>
+
+       <fieldset>
+        <legend><h2>Qualification Details:</h2></legend>
+        <label for="10per">10th Percentage : </label>
+        <input type="text" id="10per" size="5" required>
+        <br>
+        <br>
+        <label for="12per">12th Percentage : </label>
+        <input type="text" id="12per" size="5" required>
+        <br>
+       </fieldset>
+       <br>
+
+       <label for="email">Email:</label>
+       <input type="email" id="email" required>
+       <br/>
+       <br/>
+
+       <label for="phone">Mobile No.:</label>
+       <input type="tel" id="phone" required>
+       <br/>
+       <br/>
+
+       <label for="state">State:</label>
+       <select id="state" required>
+        <option value="0">Select State</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="MadhyaPradesh">Madhya Pradesh</option>
+        <option value="UttarPradesh">Uttar Pradesh</option>
+        <option value="odisa">Odisha</option>
+       </select>
+       <br/>
+       <br/>
+
+       <label for="city">City::</label>
+       <select id="city" required>
+        <option value="0">Select City</option>
+        <option value="Nagpur">Nagpur</option>
+        <option value="Akola">Akola</option>
+        <option value="Amravati">Amravati</option>
+        <option value="Mumbai">Mumbai</option>
+       </select>
+       <br>
+       <br>
+
+       <input type="submit" value="submit">
+    </form>
+    <div id="thankYouMessage" class="hidden">
+        <h2>Thank You for Registering!</h2>
+        <p><i>Your registration details have been received.<br> 
+            We will contact you shortly.</i></p>
+    </div>
+</div>
+
+    <script>
+        function handleSubmit(event){
+            event.preventDefault();
+            var name = document.getElementById('name').value;
+            var surname = document.getElementById('surname').value;
+            var sec = document.getElementById('section').value;
+            var roll = document.getElementById('rollno').value;
+        
+   
+    var thankYouMessage = document.getElementById('thankYouMessage');
+        thankYouMessage.innerHTML = "<h2>Thank You for Registering!</h2><br/>" +
+                                    "<p>" + name +" "+ surname + "</p>" +
+                                    "<p><b>Section:</b>" + sec + "</p>" +
+                                    "<p><b>Roll No:</b>" + roll + "</p>" +
+                                    "<p><i>Your registration details have been received.<br> We will contact you shortly.</i></p>";
+            
+            document.getElementById('submitForm').classList.add('hidden');
+            thankYouMessage.classList.remove('hidden');
+            
+            return false;
+        }
+
+    </script>
+    
+</body>
+</html>
